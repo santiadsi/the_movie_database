@@ -6,19 +6,24 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+  2.5.8
 
-* System dependencies
+* Rails version
+  5.2.4.2
+
+* Database
+  Postgresql 10.12
+  Elegi Postgresql por su gran capacidad para gestionar y manejar grandes cantidades de datos.
 
 * Configuration
+  database.yml change user and password
 
 * Database creation
+  rake db:create
 
 * Database initialization
+  rake db:migrate
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Finally
+  bundle install
+  rails s

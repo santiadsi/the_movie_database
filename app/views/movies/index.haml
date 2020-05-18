@@ -1,0 +1,22 @@
+.container-fluid
+  - if notice.present?
+    %p#notice.alert.alert-primary= notice
+  %h2
+    Movies created
+  = form_for_filterrific @filterrific do |f|
+    %div
+      %label{:for => "filterrific_search_query"} Search
+      = f.text_field(:search_query, class: 'filterrific-periodically-observed form-control')
+    %br/
+    %div
+      %label Sorted by date
+      = f.select(:sorted_by_date, options_for_select([["Tomorrow", 1], ["Next week", 2], ["Next month", 3]]), {include_blank: ''}, {class: 'form-control filterrific-periodically-observed'})
+    %br/
+    %div
+      = link_to 'Clear filters', reset_filterrific_url, class: 'btn btn-primary'
+    %br/
+    = render_filterrific_spinner
+
+  = render(partial: 'list', locals: { movies: @movies })
+
+  = link_to 'Add movie by ID', new_movie_path, class: 'btn btn-secondary btn-lg'

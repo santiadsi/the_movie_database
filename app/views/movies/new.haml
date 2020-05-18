@@ -1,0 +1,10 @@
+.container-fluid
+  %h4
+    Añadir peliculas por id
+
+  = form_tag(movies_path) do |f|
+    .form-group
+      = label_tag 'ID pelicula'
+      = text_field_tag :movie_id, nil, class: 'form-control', required: true, placeholder: 'ID pelicula'
+
+    = submit_tag 'Buscar y Crear', class: 'btn btn-secondary btn-lg'

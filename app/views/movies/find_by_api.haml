@@ -1,0 +1,32 @@
+.container-fluid
+  %h2
+    Search and create movies through TMDb
+
+  = form_tag(find_api_name_path, method: :get) do |f|
+    .form-group
+      = label_tag 'Search by name'
+      = text_field_tag :movie_name, nil, class: 'form-control', required: true, placeholder: 'Search by name'
+
+    = submit_tag 'Buscar', class: 'btn btn-secondary btn-lg'
+
+  %br/
+  - if @movies_response.present?
+    %table.table.table-dark
+      %thead
+        %tr
+          %th Title
+          %th Overview
+          %th Vote count
+          %th Poster path
+          %th Release date
+          %th
+      %tbody
+        - @movies_response.each do |movie|
+          %tr
+            %td= movie['title']
+            %td= movie['overview']
+            %td= movie['vote_count']
+            %td= movie['poster_path']
+            %td= movie['release_date']
+            %td{id: "m_id_#{movie['id']}"}
+              = link_to 'Create movie', create_movie_path(movie['id']), remote: true, method: :post, class: 'btn btn-primary'

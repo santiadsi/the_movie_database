@@ -1,0 +1,5 @@
+<% if @response[:success] %>
+  $("#" + "m_id_<%= @movie_id %>").html("<span>Movie created!</span>");
+<% else %>
+  $("#" + "m_id_<%= @movie_id %>").html("<span>Ha ocurrido un error!</span>");
+<% end %>

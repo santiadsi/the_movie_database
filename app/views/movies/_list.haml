@@ -1,0 +1,17 @@
+#filterrific_results
+  %table.table.table-dark
+    %thead
+      %tr
+        %th Title
+        %th Overview
+        %th Vote count
+        %th Poster path
+        %th Release date
+    %tbody
+      - movies.each do |movie|
+        %tr
+          %td= movie.title
+          %td= movie.overview
+          %td= movie.vote_count
+          %td= movie.poster_path
+          %td= movie.release_date
